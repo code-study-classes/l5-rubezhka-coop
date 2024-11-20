@@ -1,6 +1,6 @@
 class PostalValidator {
   constructor() {
-    this.regex = new RegExp('^ZIP.*$');
+    this.regex = /^ZIP.*$/;
   }
   // isCode(str) {
   //   return `${str}`.startsWith('ZIP');
@@ -13,7 +13,7 @@ class PostalValidator {
     // console.log(this.regex);
     return this;
   }
-// xyzZIP_123vw
+  // xyzZIP_123vw
   // isNormLength(str) {
   //   if (!this.min) return true;
   //   const [, code] = str.split('_');

@@ -4,14 +4,15 @@ class IpValidator {
   //   return digits.at(0) === '27' && digits.length === 4;
   // }
   constructor() {
-    this.regex = new RegExp(`27\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]+`);
+    this.regex = /27\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]+/;
     // console.log(this.regex)
   }
-// 27.444.68849349039
+
+  // 27.444.68849349039
   ipAddressValues() {
     // какая-то кривая регулярка, не работает, я не пофиксила, дальше сами
-    this.regex = new RegExp('^27(\.([0-9]{0,2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3}$');
-    console.log(this.regex)
+    this.regex = /^27(\.([0-9]{0,2}|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3}$/;
+    console.log(this.regex);
     return this;
   }
 
