@@ -1,22 +1,28 @@
 class PostalValidator {
-  isCode(str) {
-    return `${str}`.startsWith('ZIP');
+  constructor() {
+    this.regex = new RegExp('^ZIP.*$');
   }
+  // isCode(str) {
+  //   return `${str}`.startsWith('ZIP');
+  // }
 
-  setPostalCodeLengthConstraint(mn, mx = Infinity) {
-    this.min = mn;
-    this.max = mx;
+  setPostalCodeLengthConstraint(mn, mx = '') {
+    // this.min = mn;
+    // this.max = mx;
+    this.regex = new RegExp(`^ZIP_.{${mn},${mx}}$`);
+    // console.log(this.regex);
     return this;
   }
-
-  isNormLength(str) {
-    if (!this.min) return true;
-    const [, code] = str.split('_');
-    return this.min <= code.length && this.max >= code.length;
-  }
+// xyzZIP_123vw
+  // isNormLength(str) {
+  //   if (!this.min) return true;
+  //   const [, code] = str.split('_');
+  //   return this.min <= code.length && this.max >= code.length;
+  // }
 
   isValid(str) {
-    return this.isCode(str) && this.isNormLength(str);
+    // return this.isCode(str) && this.isNormLength(str);
+    return this.regex.test(str);
   }
 }
 
